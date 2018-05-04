@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using PersistenciaContexto.Contrato;
+
 
 namespace Questionario.Negocio.Entidade
 {
     [DataContract]
-    public class Questao
+    public class Questao : IIdentificavel
     {
         [DataMember]
         public int ID { get; set; }

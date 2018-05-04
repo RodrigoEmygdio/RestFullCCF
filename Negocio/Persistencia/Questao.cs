@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Questionario.Negocio.Entidade;
+using PersistenciaContexto.TreadSafeList;
 
 namespace Questionario.Negocio.Persistencia
 {
@@ -23,81 +24,23 @@ namespace Questionario.Negocio.Persistencia
             return instancia;
         }
 
-        public  class QuestaoInstancia
+        public  class QuestaoInstancia: ContextoPE<Negocio.Entidade.Questao>
         {
-            private BlockingCollection<Negocio.Entidade.Questao> Questoes = new BlockingCollection<Negocio.Entidade.Questao>() {
 
-                new Negocio.Entidade.Questao()
-                {
-                    ID = 1,
-                    Resposta="A"
-                },
-                 new Negocio.Entidade.Questao()
-                {
-                    ID = 2,
-                    Resposta="B"
-                }
-            };
-
-            public QuestaoInstancia() { }
-
-            public BlockingCollection<Negocio.Entidade.Questao> Lista()
-            {
-                return Questoes;
+            public QuestaoInstancia() {
+                Inclui(new Negocio.Entidade.Questao() { Resposta = "A" });
+                Inclui(new Negocio.Entidade.Questao() { Resposta = "B" });
             }
 
-            public void Salva(Negocio.Entidade.Questao questao)
-            {
-                Questoes.Add(questao);
-            }
-
-            public bool Deleta(int questaoId)
-            {
-                var questao = Pesquisa(questaoId);
-                try
-                {
-                    if(questao == null)
-                    {
-                        return false;
-                    }
-                    Questoes.TryTake(out questao);
-                    return true;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
-
-            public Negocio.Entidade.Questao Atualiza(Negocio.Entidade.Questao questao)
+            public override Entidade.Questao Atualiza(Entidade.Questao questao)
             {
                 var questaoSalva = Pesquisa(questao.ID);
-                if(questaoSalva == null)
+                if (questaoSalva == null)
                 {
                     return null;
                 }
                 questaoSalva.Resposta = questao.Resposta;
                 return questaoSalva;
-            }
-
-            public Negocio.Entidade.Questao Inclui(Negocio.Entidade.Questao questao)
-            {
-                var ultimaQuestao = Questoes.LastOrDefault();
-                if(ultimaQuestao == null)
-                {
-                    questao.ID = 1;
-                }else
-                {
-                    questao.ID = ++ultimaQuestao.ID;
-                }
-
-                Questoes.Add(questao);
-                return questao;
-            }
-
-            public Entidade.Questao Pesquisa(int questaoId)
-            {
-                return Questoes.Where(questaoSalva => questaoSalva.ID == questaoId).FirstOrDefault();
             }
         }
     }
