@@ -21,7 +21,7 @@ namespace Questionario.Negocio.Contratos
         [OperationContract]
         Questao Questao(string questaoId);
 
-        [WebInvoke(UriTemplate="Questao", Method="PUT", ResponseFormat =WebMessageFormat.Json)]
+        [WebInvoke(UriTemplate="Questao", Method="PUT", ResponseFormat =WebMessageFormat.Json, RequestFormat =WebMessageFormat.Json)]
         [OperationContract]
         Questao Atualiza(Questao questao);
     }

@@ -75,7 +75,7 @@ namespace Questionario.Negocio.Persistencia
                 {
                     return null;
                 }
-                questaoSalva = questao;
+                questaoSalva.Resposta = questao.Resposta;
                 return questaoSalva;
             }
 

@@ -1,11 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servico", "Servico\Servico.csproj", "{7A2076D4-F09B-489C-B303-296B6DC58C74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{8B4F1169-D04B-44A2-A3FB-2D6C1C0D5181}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WCFRestFull", "C:\Users\resspereira\Documents\Visual Studio 2015\WebSites\WCFRestFull\", "{0F8ECE26-8261-4886-B970-F90F69E22009}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{7a2076d4-f09b-489c-b303-296b6dc58c74}|QuestionarioServico.dll;{8B4F1169-D04B-44A2-A3FB-2D6C1C0D5181}|QuestionarioNegocio.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52675"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Users\resspereira\Documents\Visual Studio 2015\WebSites\WCFRestFull\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52675\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52675"
+		Release.AspNetCompiler.PhysicalPath = "C:\Users\resspereira\Documents\Visual Studio 2015\WebSites\WCFRestFull\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52675\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52675"
+		SlnRelativePath = "C:\Users\resspereira\Documents\Visual Studio 2015\WebSites\WCFRestFull\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +44,10 @@ Global
 		{8B4F1169-D04B-44A2-A3FB-2D6C1C0D5181}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B4F1169-D04B-44A2-A3FB-2D6C1C0D5181}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B4F1169-D04B-44A2-A3FB-2D6C1C0D5181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F8ECE26-8261-4886-B970-F90F69E22009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8ECE26-8261-4886-B970-F90F69E22009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8ECE26-8261-4886-B970-F90F69E22009}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8ECE26-8261-4886-B970-F90F69E22009}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
