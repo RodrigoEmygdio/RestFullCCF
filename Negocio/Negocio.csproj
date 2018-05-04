@@ -7,8 +7,8 @@
     <ProjectGuid>{8B4F1169-D04B-44A2-A3FB-2D6C1C0D5181}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Negocio</RootNamespace>
-    <AssemblyName>Negocio</AssemblyName>
+    <RootNamespace>Questionario.Negocio</RootNamespace>
+    <AssemblyName>QuestionarioNegocio</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,8 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBookmarkService.cs" />
+    <Compile Include="Delegacao\BDQuestao.cs" />
+    <Compile Include="Contratos\IQuestoesService.cs" />
+    <Compile Include="Persistencia\Questao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enitdades\Questao.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
