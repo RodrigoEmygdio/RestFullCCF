@@ -68,15 +68,15 @@ namespace Questionario.Negocio.Persistencia
                 }
             }
 
-            public bool Atualiza(Negocio.Entidade.Questao questao)
+            public Negocio.Entidade.Questao Atualiza(Negocio.Entidade.Questao questao)
             {
                 var questaoSalva = Pesquisa(questao.ID);
                 if(questaoSalva == null)
                 {
-                    return false;
+                    return null;
                 }
                 questaoSalva = questao;
-                return true;
+                return questaoSalva;
             }
 
             public Entidade.Questao Pesquisa(int questaoId)
