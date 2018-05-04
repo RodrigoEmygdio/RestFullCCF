@@ -80,6 +80,21 @@ namespace Questionario.Negocio.Persistencia
                 return questaoSalva;
             }
 
+            public Negocio.Entidade.Questao Inclui(Negocio.Entidade.Questao questao)
+            {
+                var ultimaQuestao = Questoes.LastOrDefault();
+                if(ultimaQuestao == null)
+                {
+                    questao.ID = 1;
+                }else
+                {
+                    questao.ID = ++ultimaQuestao.ID;
+                }
+
+                Questoes.Add(questao);
+                return questao;
+            }
+
             public Entidade.Questao Pesquisa(int questaoId)
             {
                 return Questoes.Where(questaoSalva => questaoSalva.ID == questaoId).FirstOrDefault();

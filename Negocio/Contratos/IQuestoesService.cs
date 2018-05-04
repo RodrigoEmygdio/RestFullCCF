@@ -25,5 +25,9 @@ namespace Questionario.Negocio.Contratos
         [WebInvoke(UriTemplate="Questao", Method="PUT", ResponseFormat =WebMessageFormat.Json, RequestFormat =WebMessageFormat.Json)]
         [OperationContract]
         Questao Atualiza(Questao questao);
+
+        [WebInvoke(UriTemplate = "Questao", Method = "POST", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        Questao Inclui(Questao questao);
     }
 }

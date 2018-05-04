@@ -31,6 +31,11 @@ namespace Servico
 
         }
 
+        public Questao Inclui(Questao questao)
+        {
+            return bDQuestao.QuestaoPe.Inclui(questao);
+        }
+
         public Questao Questao(string questaoId)
         {
             return  bDQuestao.QuestaoPe.Pesquisa(int.Parse(questaoId));
