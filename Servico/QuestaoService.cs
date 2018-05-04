@@ -13,8 +13,10 @@ using Questionario.Negocio.Delegacao;
 namespace Servico
 {
     [AspNetCompatibilityRequirements(RequirementsMode=AspNetCompatibilityRequirementsMode.Allowed)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class QuestoesService : IQuestoesService
     {
+        
         private BDQuestao bDQuestao = new BDQuestao();
 
         public Questao Atualiza(Questao questao)
@@ -36,7 +38,7 @@ namespace Servico
 
         public List<Questao> Questoes()
         {
-            return bDQuestao.QuestaoPe.Lista();
+            return bDQuestao.QuestaoPe.Lista().ToList<Questao>();
         }
     }
 }

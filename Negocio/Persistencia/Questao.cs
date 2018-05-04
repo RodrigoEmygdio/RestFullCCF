@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +17,15 @@ namespace Questionario.Negocio.Persistencia
         {
             if(instancia == null)
             {
-                return new QuestaoInstancia();
+                instancia = new QuestaoInstancia();
+                
             }
             return instancia;
         }
 
         public  class QuestaoInstancia
         {
-            private List<Negocio.Entidade.Questao> Questoes = new List<Negocio.Entidade.Questao>() {
+            private BlockingCollection<Negocio.Entidade.Questao> Questoes = new BlockingCollection<Negocio.Entidade.Questao>() {
 
                 new Negocio.Entidade.Questao()
                 {
@@ -40,7 +41,7 @@ namespace Questionario.Negocio.Persistencia
 
             public QuestaoInstancia() { }
 
-            public List<Negocio.Entidade.Questao> Lista()
+            public BlockingCollection<Negocio.Entidade.Questao> Lista()
             {
                 return Questoes;
             }
@@ -59,7 +60,7 @@ namespace Questionario.Negocio.Persistencia
                     {
                         return false;
                     }
-                    Questoes.Remove(questao);
+                    Questoes.TryTake(out questao);
                     return true;
                 }
                 catch (Exception)

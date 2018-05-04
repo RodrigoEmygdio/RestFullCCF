@@ -10,6 +10,7 @@ using Questionario.Negocio.Entidade;
 
 namespace Questionario.Negocio.Contratos
 {
+    
     [ServiceContract]
     public interface IQuestoesService
     {
